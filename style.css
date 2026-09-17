@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: transparent;
+}
+
+.streak-box {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  font-size: 24px;
+}
+
+button {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#streak {
+  min-width: 30px;
+  text-align: center;
+}

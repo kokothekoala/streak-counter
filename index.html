@@ -1,8 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Streak Counter</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      font-family: Arial, sans-serif;
+    }
+
+    .streak-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 12px 18px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    button {
+      width: 38px;
+      height: 38px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    #streak {
+      min-width: 30px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,6 +58,18 @@
     <span id="streak">0</span>
     <button onclick="changeStreak(1)">+</button>
   </div>
+
+  <script>
+    let streak = Number(localStorage.getItem("streak")) || 0;
+
+    document.getElementById("streak").textContent = streak;
+
+    function changeStreak(amount) {
+      streak = Math.max(0, streak + amount);
+      document.getElementById("streak").textContent = streak;
+      localStorage.setItem("streak", streak);
+    }
+  </script>
 
 </body>
 </html>
